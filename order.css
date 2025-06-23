@@ -1,0 +1,366 @@
+/* 模擬手機 375x812 螢幕大小 */
+.mobile-screen {
+  width: 375px;
+  height: 812px;
+  background-color: #FCF1E6;
+  margin: 0 auto;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  overflow: visible;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 頂部 Header */
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px 16px 0 16px;
+}
+
+/* LOGO 左側組合 */
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* LOGO圖片 */
+.logo-img {
+  width: 24px;
+  height: 24px;
+}
+
+/* LOGO文字 */
+.logo-text {
+  color: #B47B52;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 28px;
+}
+
+/* 右側購物袋 */
+.bag-icon {
+  width: 20px;
+  height: 28px;
+  object-fit: contain;
+}
+.white-panel {
+  position: relative; /* 改為 relative */
+  width: 375px;
+  background-color: #FFFFFF;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  z-index: 1;
+  padding-top: 5px;      /* 新增這行 */
+  padding-bottom: 30px; /* 適當增加底部間距，避免內容貼邊 */
+  margin-top: 20px; /* 和上方貓咪滑動區距離 */
+  margin-bottom: 20px; /* 建議加一個底部外距，避免往上貼到底 */
+}
+
+.button-group {
+  position: relative;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.small-button {
+  width: 105px;
+  height: 50px;
+  border-radius: 999px;
+  background-color: rgba(180, 123, 82, 0.2);
+  color: #B47B52;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  line-height: 28px;
+  text-decoration: none;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 11px 25px;
+  transition: background-color 0.2s ease;
+}
+
+.active-button {
+  background-color: #B47B52;
+  color: #FFFFFF;
+}
+
+.coffee-wrapper {
+  width: 375px;
+  max-width: 375px;
+  height: 430px;  
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  overflow: hidden;
+  padding-top: 20px; /* 統一頂部空間 */
+  cursor: grab;
+}
+.coffee-combo {
+  width: 197px;
+  flex-shrink: 0;
+  position: relative;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.coffee-layer {
+  width: 197px;
+  height: 233px;
+  position: relative;
+  z-index: 2; /* 上層 */
+}
+
+.coffee-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 197px;
+  height: 233px;
+  border-radius: 40px;
+  object-fit: cover;
+    z-index: 1;
+}
+
+.coffee-obj {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 197px;
+  height: 233px;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.coffee-info {
+  width: 197px;
+  height: 215px;
+  background-color: #FFFFFF;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  margin-top: -35px;
+  z-index: 1;
+  position: relative;
+
+  /* 不用 flex，改用 padding 調整 */
+  display: block;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-top: 42px;    /* 上方留42px空間 */
+  padding-left: 25px;   /* 左方留25px空間 */
+  box-sizing: border-box; /* 讓 padding 不會影響寬度 */
+}
+
+.coffee-title {
+  margin: 0;
+  color: black;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  line-height: 28px;
+  text-align: left;
+  word-wrap: break-word;
+}
+.coffee-desc {
+  margin-top: 10px;
+  width: 148px;   /* 固定寬度 */
+  height: 120px;  /* 固定高度 */
+  color: #212121;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  line-height: 24px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;   /* 超過部分隱藏 */
+  text-align: left;
+  letter-spacing: 0.1px;
+}
+.coffee-side {
+  transform: scale(0.87);
+  opacity: 0.2;
+  pointer-events: none;
+}
+.coffee-combo.coffee-side .coffee-info.coffee-title.coffee-bg .coffee-objcoffee-info{
+  width: 100%;
+  padding-left: 25px;
+  padding-right: 25px;
+  box-sizing: border-box;
+}
+
+.coffee-combo.coffee-side .coffee-desc.coffee-title.coffee-bg .coffee-objcoffee-info{
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+.small-button {
+  width: 105px;
+  height: 50px;
+  border-radius: 999px;
+  background-color: rgba(180, 123, 82, 0.2);
+  color: #B47B52;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 750;
+  line-height: 28px;
+  text-decoration: none;
+  text-align: center;
+  padding: 11px 25px;
+  box-sizing: border-box; /* 👈 讓 padding 不影響寬高 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+.coffee-wrapper:active {
+  cursor: grabbing;
+}
+.small-button:hover:not(.active-button) {
+  background-color: rgba(180, 123, 82, 0.35);
+  cursor: pointer;
+}
+
+.active-button {
+  background-color: #B47B52;
+  color: #FFFFFF;
+  cursor: default;
+}
+/* 顯示區塊：375px x 179px，超過會被裁掉 */
+/* Scroll container */
+.scroll-wrapper {
+  width: 375px;
+  height: 195px;
+  overflow-x: auto;
+ overflow-y: visible;
+  margin: 16px auto 20px auto; /* 這裡底部 margin 建議改成 20px */
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+   position: relative;
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll track */
+.scroll-track {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start; /* 由預設的 stretch 改成 flex-start */
+  width: 2449px;
+  height: 179px;
+}
+.cat-card:first-child {
+  margin-left: 16px;
+}
+.cat-card {
+  flex-shrink: 0; /* 不讓卡片縮小 */
+  width: 343px;
+  height: 203px; /* 你原本卡片大小 */
+  position: relative;
+  margin-top: 0px; /* 你原本 margin */
+  overflow: visible !important;
+  z-index: 10; /* 確保在父容器之上 */
+  /* 如果跑版嚴重，可以試著先移除 margin，看效果 */
+}
+
+/* 底色區塊 */
+.card-bg {
+  width: 343px;
+  height: 179px;
+  background: #B47B52;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* 主標題 */
+.caption-text {
+  position: absolute;
+  top: 8px;
+  left: 7px;
+  width: 329px;
+  height: 22px;
+  color: #FFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 22px;
+  letter-spacing: -1.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  z-index: 4; /* 比圖片高 */
+}
+
+/* 副標題 */
+.sub-caption-text {
+  position: absolute;
+  top: 38px;
+  left: 7px;
+  width: 329px;
+  height: auto;
+  color: #FFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  white-space: normal;
+  letter-spacing: 1px;
+  overflow: visible;
+  z-index: 5; /* 最高層 */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+/* 貓咪圖片 */
+.cat-image {
+  position: absolute;
+  bottom: 7px;
+  right: 0;
+  width: 265px;
+  height: 190px;
+  object-fit: cover;
+  z-index: 3; /* 文字層之下 */
+}
+
+
+/* More About Me 按鈕 */
+.info-badge {
+  position: absolute;
+  left: 7px;
+  bottom: 31px;
+  width: 137px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 999px;
+  background: #FFF;
+  color: #B47B52;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  z-index: 3;
+}
+
+/* 其他圖片卡片 */
+.cat-card-img {
+  width: 343px;
+  height: 179px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  object-fit: cover;
+}

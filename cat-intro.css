@@ -1,0 +1,59 @@
+/* 基本重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #fef6e4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #b47b52;
+}
+
+.cat-image {
+  width: 270px;
+  height: 210px;
+  background: url('images/cat-photo.jpg') center center/cover no-repeat;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(180, 123, 82, 0.3);
+  margin-bottom: 1rem;
+}
+
+.description {
+  max-width: 400px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  text-align: center;
+  color: #555;
+}
+
+/* 回首頁按鈕 */
+.btn-back {
+  margin-top: 2rem;
+  padding: 12px 24px;
+  background-color: #b47b52;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-back:hover {
+  background-color: #8c5e3a;
+}

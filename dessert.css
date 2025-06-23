@@ -1,0 +1,231 @@
+/* 模擬手機 375x812 螢幕大小 */
+.mobile-screen {
+  width: 375px;
+  height: 812px;
+  background-color: #FCF1E6;
+  margin: 0 auto;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  overflow: visible;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 頂部 Header */
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px 16px 0 16px;
+}
+
+/* LOGO 左側組合 */
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* LOGO圖片 */
+.logo-img {
+  width: 24px;
+  height: 24px;
+}
+
+/* LOGO文字 */
+.logo-text {
+  color: #B47B52;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 28px;
+}
+
+/* 右側購物袋 */
+.bag-icon {
+  width: 20px;
+  height: 28px;
+  object-fit: contain;
+}
+.white-panel {
+  position: absolute;
+  top: 277px;
+  left: 0;
+  width: 375px;
+  height: 535px;
+  background-color: #FFFFFF;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  z-index: 0;
+}
+
+/* 🔘 上方三個圓角矩形按鈕 */
+.button-group {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px; /* 保證三顆按鈕間有 10px 間距 */
+}
+
+.small-button {
+  width: 105px;
+  height: 50px;
+  border-radius: 999px;
+  background-color: rgba(180, 123, 82, 0.2);
+  color: #B47B52;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 750;
+  line-height: 28px;
+  text-decoration: none;
+  text-align: center;
+  padding: 11px 25px;
+  box-sizing: border-box; /* 👈 讓 padding 不影響寬高 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.small-button:hover:not(.active-button) {
+  background-color: rgba(180, 123, 82, 0.35);
+  cursor: pointer;
+}
+
+.active-button {
+  background-color: #B47B52;
+  color: #FFFFFF;
+  cursor: default;
+}
+/* 顯示區塊：375px x 179px，超過會被裁掉 */
+/* Scroll container */
+.scroll-wrapper {
+  width: 375px;
+  height: 195px;
+  overflow-x: auto;
+ overflow-y: visible;
+  margin: 16px auto;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+   position: relative;
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll track */
+.scroll-track {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start; /* 由預設的 stretch 改成 flex-start */
+  width: 2449px;
+  height: 179px;
+}
+.cat-card:first-child {
+  margin-left: 16px;
+}
+.cat-card {
+  flex-shrink: 0; /* 不讓卡片縮小 */
+  width: 343px;
+  height: 203px; /* 你原本卡片大小 */
+  position: relative;
+  margin-top: 0px; /* 你原本 margin */
+  overflow: visible !important;
+  z-index: 10; /* 確保在父容器之上 */
+  /* 如果跑版嚴重，可以試著先移除 margin，看效果 */
+}
+
+/* 底色區塊 */
+.card-bg {
+  width: 343px;
+  height: 179px;
+  background: #B47B52;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* 主標題 */
+.caption-text {
+  position: absolute;
+  top: 8px;
+  left: 7px;
+  width: 329px;
+  height: 22px;
+  color: #FFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 22px;
+  letter-spacing: -1.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  z-index: 4; /* 比圖片高 */
+}
+
+/* 副標題 */
+.sub-caption-text {
+  position: absolute;
+  top: 38px;
+  left: 7px;
+  width: 329px;
+  height: auto;
+  color: #FFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  white-space: normal;
+  letter-spacing: 1px;
+  overflow: visible;
+  z-index: 5; /* 最高層 */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+/* 貓咪圖片 */
+.cat-image {
+  position: absolute;
+  bottom: 7px;
+  right: 0;
+  width: 265px;
+  height: 190px;
+  object-fit: cover;
+  z-index: 3; /* 文字層之下 */
+}
+
+
+/* More About Me 按鈕 */
+.info-badge {
+  position: absolute;
+  left: 7px;
+  bottom: 31px;
+  width: 137px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 999px;
+  background: #FFF;
+  color: #B47B52;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  z-index: 3;
+}
+
+/* 其他圖片卡片 */
+.cat-card-img {
+  width: 343px;
+  height: 179px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
