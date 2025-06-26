@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 初始化 Swiper 飲料卡片滑動功能
   new Swiper(".coffee-swiper", {
-  slidesPerView: "auto",
   initialSlide: 1, // 👈 這裡設定為第 2 張卡片（從 0 開始算）
+  slidesPerView: "auto",
   centeredSlides: true,
   loop: true,
   grabCursor: true,

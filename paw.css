@@ -97,7 +97,6 @@
   color: #FFFFFF;
   cursor: default;
 }
-
 /* 顯示區塊：375px x 179px，超過會被裁掉 */
 /* Scroll container */
 .scroll-wrapper {
@@ -220,6 +219,7 @@
   font-weight: 700;
   line-height: 24px;
   z-index: 3;
+  text-decoration: none;
 }
 
 /* 其他圖片卡片 */

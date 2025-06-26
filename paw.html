@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Order</title>
   <link rel="stylesheet" href="order.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
   <div class="mobile-screen">
@@ -16,40 +17,94 @@
       </div>
       <img src="images/bag.png" alt="Bag" class="bag-icon" />
     </div>
-     <div class="white-panel">
+  <!-- 貓咪滑動區 -->
+    <div class="scroll-wrapper" id="scroll-wrapper">
+      <div class="scroll-track" id="scroll-track">
+        <!-- 貓咪卡片 A 區塊 -->
+        <div class="cat-card">
+          <div class="card-bg"></div>
+          <img src="images/cat00.png" alt="Cat" class="cat-image" />
+          <div class="caption-text">Today’s cat crew is on duty!</div>
+          <div class="sub-caption-text">
+            Which one will steal your heart (or your <br />meal)?
+          </div>
+          <a href="cat-intro.html" class="info-badge">More About Me</a>
+        </div>
+
+        <!-- 其他圖片卡 -->
+        <img src="images/cat01.png" class="cat-card-img" />
+        <img src="images/cat02.png" class="cat-card-img" />
+        <img src="images/cat03.png" class="cat-card-img" />
+        <img src="images/cat04.png" class="cat-card-img" />
+        <img src="images/cat05.png" class="cat-card-img" />
+        <img src="images/cat06.png" class="cat-card-img" />
+      </div>
+    </div>
+
+    <!-- 白底飲料區 -->
+    <div class="white-panel">
   <div class="button-group">
     <a href="order.html" class="small-button">Drink</a>
     <a href="Dessert.html" class="small-button">Dessert</a>
     <div class="small-button active-button">Paw</div>
   </div>
-</div>
-<!-- 可視區域（固定寬度） -->
-  <div class="scroll-wrapper" id="scroll-wrapper">
-    <!-- 可拖曳的長條容器 -->
-    <div class="scroll-track" id="scroll-track">
-    <!-- 貓咪卡片 A 區塊 -->
-<div class="cat-card">
-  <div class="card-bg"></div>
- 
-  <img src="images/cat00.png" alt="Cat" class="cat-image" />
-   <div class="caption-text">Today’s cat crew is on duty!</div>
-  <div class="sub-caption-text">
-    Which one will steal your heart (or your <br />meal)?
-  </div>
-  <div class="info-badge">More About Me</div>
-</div>
-<!-- 其他圖片卡 -->
-      <img src="images/cat01.png" class="cat-card-img" />
-      <img src="images/cat02.png" class="cat-card-img" />
-      <img src="images/cat03.png" class="cat-card-img" />
-      <img src="images/cat04.png" class="cat-card-img" />
-      <img src="images/cat05.png" class="cat-card-img" />
-      <img src="images/cat06.png" class="cat-card-img" />
+<div class="swiper-container-wrapper"></div>
+  <div class="swiper coffee-swiper">
+    <div class="swiper-wrapper">
+    <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <div class="coffee-combo">
+          <div class="coffee-layer">
+            <img src="images/matcha01.png" alt="Coffee BG" class="coffee-bg" />
+            <img src="images/matcha02.png" alt="Coffee FG" class="coffee-obj" />
+          </div>
+          <div class="coffee-info">
+            <img src="images/matchatitle.png" alt="Matcha" class="coffee-title-img" />
+            <div class="coffee-desc">
+            Creamy matcha latte with cute cat-shaped latte art — a cozy sip for matcha lovers.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="swiper-slide">
+      <div class="coffee-combo">
+        <div class="coffee-layer">
+          <img src="images/coffee01.png" alt="Coffee BG" class="coffee-bg" />
+          <img src="images/coffee02.png" alt="Coffee FG" class="coffee-obj" />
+        </div>
+        <div class="coffee-info">
+          <img src="images/coffeetitle.png" alt="Coffee" class="coffee-title-img" />
+          <div class="coffee-desc">
+            A smooth, creamy latte with cat paw latte art.<br />
+            Ice and sweetness adjustable.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="swiper-slide">
+      <div class="coffee-combo">
+        <div class="coffee-layer">
+          <img src="images/bubble01.png" alt="Coffee BG" class="coffee-bg" />
+          <img src="images/bubble02.png" alt="Coffee FG" class="coffee-obj" />
+        </div>
+        <div class="coffee-info">
+          <img src="images/bubbletitle.png" alt="Bubble" class="coffee-title-img" />
+          <div class="coffee-desc">
+            A creamy bubble milk tea with a cute cat-ear lid — sweet and full of feline charm.
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- 分頁 -->
+  <div class="swiper-pagination"></div>
 </div>
-    <!-- 這邊你可以繼續擺其他內容 -->
-  </div>
-  <script src="order.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="paw.js"></script>
 </body>
 </html>

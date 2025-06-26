@@ -8,6 +8,7 @@
   font-family: 'Inter', sans-serif;
   overflow: visible;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  
 }
 
 /* 頂部 Header */
@@ -46,27 +47,194 @@
   object-fit: contain;
 }
 .white-panel {
-  position: absolute;
-  top: 277px;
-  left: 0;
+  position: relative; /* 改為 relative */
   width: 375px;
-  height: 535px;
+  height: 535px; /* ✅ 固定高度 */
   background-color: #FFFFFF;
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
-  z-index: 0;
+  z-index: 1;
+  padding-top: 5px;      /* 新增這行 */
+  padding-bottom: 30px; /* 適當增加底部間距，避免內容貼邊 */
+  margin-top: 20px; /* 和上方貓咪滑動區距離 */
+  margin-bottom: 20px; /* 建議加一個底部外距，避免往上貼到底 */
 }
 
-/* 🔘 上方三個圓角矩形按鈕 */
 .button-group {
-  position: absolute;
-  top: 25px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  margin-top: 20px;
   display: flex;
-  gap: 10px; /* 保證三顆按鈕間有 10px 間距 */
+  justify-content: center;
+  gap: 10px;
 }
 
+.small-button {
+  width: 105px;
+  height: 50px;
+  border-radius: 999px;
+  background-color: rgba(180, 123, 82, 0.2);
+  color: #B47B52;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  line-height: 28px;
+  text-decoration: none;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 11px 25px;
+  transition: background-color 0.2s ease;
+}
+
+.active-button {
+  background-color: #B47B52;
+  color: #FFFFFF;
+}
+
+/* Swiper 容器 */
+/* swiper 基本設定 */
+.swiper {
+  width: 100%;
+  padding: 60px 0; /* ✅ 原本是 40px，往下多 20px */
+}
+.swiper-container-wrapper {
+  margin-top: 20px; /* ✅ 控制整體往下 */
+}
+.swiper-wrapper {
+  display: flex;
+  gap: 0px; /* 每張卡片間距 */
+  padding-left: 0px;
+}
+
+/* 卡片尺寸 */
+.swiper-slide {
+  width: 197px !important;
+  height: 414px !important;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center center;
+  opacity: 0.3;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box; /* 確保padding不影響大小 */
+  overflow: visible; /* 確保內部元素不被裁切 */
+}
+
+/* 中間卡片放大 */
+.swiper-slide-active {
+  transform: scale(1) !important;
+  opacity: 1 !important;
+  z-index: 20;
+  overflow:visible;
+}
+
+/* 中間卡片左右側邊卡片尺寸縮小版 */
+.swiper-slide-prev,
+.swiper-slide-next {
+  /* 縮小到 0.87 * 0.87 = 0.7569 約 0.76 */
+  transform: scale(0.87) !important;
+  opacity: 0.5 !important;
+  z-index: 5;
+}
+.coffee-combo {
+  width: 197px;
+  height: 414px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+.coffee-layer {
+  width: 197px;
+  height: 233px;
+  position: relative;
+  z-index: 2; /* 上層 */
+}
+
+.coffee-bg {
+  position: absolute;
+  top: 0px !important;
+  left: 0;
+  width: 197px;
+  height: 233px;
+  border-radius: 40px;
+  object-fit: cover;
+  z-index: 1;
+}
+
+
+.coffee-info {
+  width: 197px;
+  height: 215px;
+  background-color: #FFFFFF;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  margin-top: 0; /* 改成0，避免超出 */
+  padding-top: 24px;
+  padding-bottom: 24px; /* 也可以視覺平衡一起調整 */
+  z-index: 1;
+  position: relative;
+  box-shadow: 
+    0px 4px 10px rgba(0, 0, 0, 0.25),
+    4px 0px 10px rgba(0, 0, 0, 0.15),
+    -4px 0px 10px rgba(0, 0, 0, 0.15);
+
+
+  /* 不用 flex，改用 padding 調整 */
+  display: block;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-top: 42px;    /* 上方留42px空間 */
+  padding-left: 25px;   /* 左方留25px空間 */
+  box-sizing: border-box; /* 讓 padding 不會影響寬度 */
+}
+
+.coffee-title-img {
+  display: block;
+  margin-bottom: 10px;         /* 和下方描述的間距 */
+  margin-left: 0px;       /* 距離白底左邊 20px */
+  margin-right: auto;
+  width: auto;                 /* 不限制寬度 */
+  height: auto;                /* 不限制高度 */
+  max-width: none;             /* 移除預設最大寬度限制 */
+}
+.coffee-desc {
+  margin-top: 10px;
+  width: 148px;   /* 固定寬度 */
+  height: 120px;  /* 固定高度 */
+  color: #212121;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  line-height: 24px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;   /* 超過部分隱藏 */
+  text-align: left;
+  letter-spacing: 0.1px;
+}
+.coffee-side {
+  transform: scale(0.87);
+  opacity: 0.2;
+  pointer-events: none;
+}
+.coffee-combo.coffee-side .coffee-info.coffee-title.coffee-bg .coffee-objcoffee-info{
+  width: 100%;
+  padding-left: 25px;
+  padding-right: 25px;
+  box-sizing: border-box;
+}
+
+.coffee-combo.coffee-side .coffee-desc.coffee-title.coffee-bg .coffee-objcoffee-info{
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
 .small-button {
   width: 105px;
   height: 50px;
@@ -86,7 +254,9 @@
   align-items: center;
   transition: background-color 0.2s ease;
 }
-
+.coffee-wrapper:active {
+  cursor: grabbing;
+}
 .small-button:hover:not(.active-button) {
   background-color: rgba(180, 123, 82, 0.35);
   cursor: pointer;
@@ -104,7 +274,7 @@
   height: 195px;
   overflow-x: auto;
  overflow-y: visible;
-  margin: 16px auto;
+  margin: 16px auto 20px auto; /* 這裡底部 margin 建議改成 20px */
   cursor: grab;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -219,6 +389,7 @@
   font-weight: 700;
   line-height: 24px;
   z-index: 3;
+  text-decoration: none;
 }
 
 /* 其他圖片卡片 */

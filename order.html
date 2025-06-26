@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Order</title>
   <link rel="stylesheet" href="order.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
   <div class="mobile-screen">
@@ -27,7 +28,7 @@
           <div class="sub-caption-text">
             Which one will steal your heart (or your <br />meal)?
           </div>
-          <div class="info-badge">More About Me</div>
+          <a href="cat-intro.html" class="info-badge">More About Me</a>
         </div>
 
         <!-- 其他圖片卡 -->
@@ -47,51 +48,63 @@
         <a href="dessert.html" class="small-button">Dessert</a>
         <a href="paw.html" class="small-button">Paw</a>
       </div>
+<div class="swiper-container-wrapper"></div>
+  <div class="swiper coffee-swiper">
+    <div class="swiper-wrapper">
+    <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <div class="coffee-combo">
+          <div class="coffee-layer">
+            <img src="images/matcha01.png" alt="Coffee BG" class="coffee-bg" />
+            <img src="images/matcha02.png" alt="Coffee FG" class="coffee-obj" />
+          </div>
+          <div class="coffee-info">
+            <img src="images/matchatitle.png" alt="Matcha" class="coffee-title-img" />
+            <div class="coffee-desc">
+            Creamy matcha latte with cute cat-shaped latte art — a cozy sip for matcha lovers.
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div class="coffee-wrapper">
-  <!-- 左側小卡 -->
-  <div class="coffee-combo coffee-side" id="left-card">
-    <div class="coffee-layer">
-      <img src="images/matcha01.png" alt="Coffee BG" class="coffee-bg" />
-      <img src="images/matcha2.png" alt="Coffee FG" class="coffee-obj" />
+    <!-- Slide 2 -->
+    <div class="swiper-slide">
+      <div class="coffee-combo">
+        <div class="coffee-layer">
+          <img src="images/coffee01.png" alt="Coffee BG" class="coffee-bg" />
+          <img src="images/coffee02.png" alt="Coffee FG" class="coffee-obj" />
+        </div>
+        <div class="coffee-info">
+          <img src="images/coffeetitle.png" alt="Coffee" class="coffee-title-img" />
+          <div class="coffee-desc">
+            A smooth, creamy latte with cat paw latte art.<br />
+            Ice and sweetness adjustable.
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="coffee-info">
-      <div class="coffee-title">Matcha Latte</div>
-      <div class="coffee-desc">
-    Creamy matcha latte with cute cat-shaped latte art — a cozy sip for matcha lovers.
-    </div>
+
+    <!-- Slide 3 -->
+    <div class="swiper-slide">
+      <div class="coffee-combo">
+        <div class="coffee-layer">
+          <img src="images/bubble01.png" alt="Coffee BG" class="coffee-bg" />
+          <img src="images/bubble02.png" alt="Coffee FG" class="coffee-obj" />
+        </div>
+        <div class="coffee-info">
+          <img src="images/bubbletitle.png" alt="Bubble" class="coffee-title-img" />
+          <div class="coffee-desc">
+            A creamy bubble milk tea with a cute cat-ear lid — sweet and full of feline charm.
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- 中央主卡 -->
-  <div class="coffee-combo" id="center-card">
-    <div class="coffee-layer">
-      <img src="images/coffee01.png" alt="Coffee BG" class="coffee-bg" />
-      <img src="images/coffee02.png" alt="Coffee FG" class="coffee-obj" />
-    </div>
-    <div class="coffee-info">
-      <div class="coffee-title">Coffee</div>
-      <div class="coffee-desc">
-    A smooth, creamy latte with cat paw latte art.<br />
-    Ice and sweetness adjustable.
-    </div>
-    </div>
-  </div>
-
-  <!-- 右側小卡 -->
-  <div class="coffee-combo coffee-side" id="right-card">
-    <div class="coffee-layer">
-      <img src="images/bubble01.png" alt="Coffee BG" class="coffee-bg" />
-      <img src="images/bubble02.png" alt="Coffee FG" class="coffee-obj" />
-    </div>
-    <div class="coffee-info">
-      <div class="coffee-title">Bubble Milk Tea</div>
-      <div class="coffee-desc">
-    A creamy bubble milk tea with a cute cat-ear lid — sweet and full of feline charm.
-    </div>
-  </div>
+  <!-- 分頁 -->
+  <div class="swiper-pagination"></div>
 </div>
-  </div>
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="order.js"></script>
 </body>
 </html>
