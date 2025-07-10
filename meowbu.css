@@ -1,0 +1,278 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0; padding: 0;
+  background: #FCF1E6;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.mobile-screen {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  margin: 0 auto;
+  background-color: #FCF1E6;
+  overflow-y: auto;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  overflow-y: hidden; /* 改成隱藏垂直滾動，避免衝突 */
+}
+.logo-overlay {
+  position: absolute;
+  top: 33px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  opacity: 0.5;
+}
+
+.logo-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.logo-text {
+  margin-left: 5px;
+  color: white;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  line-height: 28px;
+  word-wrap: break-word;
+}
+.logo-arrow {
+  position: absolute;
+  top: 63px; /* 根據 logo-overlay 的 top:33 + 約40px 高度 */
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.logo-arrow:hover {
+  opacity: 1;
+}
+
+.top-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+}
+.top-image-container {
+  position: relative;
+  width: 375px;
+  height: 511px;
+  overflow: hidden;
+}
+
+/* 滑動容器設定 */
+.bottom-scroll-wrapper {
+  position: absolute; /* 改成絕對定位 */
+  bottom: 0;          /* 貼齊底部 */
+  left: 0;
+  width: 375px;
+  height: 535px;      /* 固定高度 */
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  box-sizing: border-box;
+  cursor: grab;
+}
+
+.bottom-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.bottom-scroll-track {
+  display: flex;
+  padding-left: 0;  /* 保持靠左貼齊 */
+  gap: 0; /* 改用 margin 控制間距，不用 gap */
+}
+
+.bottom-panel {
+  flex: 0 0 auto;
+  width: 375px;
+  height: 535px;
+  background: linear-gradient(to top, rgba(252, 241, 230, 1), rgba(252, 241, 230, 0.8));
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  padding: 20px 25px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-left: 18px; /* 後續卡片有左邊間距 */
+}
+
+.first-panel {
+  margin-left: 0 !important; /* ✅ 第一張不要偏移 */
+}
+
+
+/* 棕色膠囊 */
+.brown-box {
+  width: 215px;
+  height: 45px;
+  border-radius: 100px;
+  background-color: #B47B52;
+  position: absolute;
+  top: 30px;
+  right: 25;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.brown-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brown-text {
+  color: white;
+  font-size: 32px;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 40px;
+  white-space: nowrap;
+}
+
+.brown-image {
+  width: 26px;
+  height: 26px;
+}
+.food-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 83px; /* 第一組的位置 */
+  z-index: 2;
+}
+
+/* 每組為橫排 */
+.food-pair {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+/* 小棕色方塊 */
+.small-box {
+  width: 76px;
+  height: 76px;
+  border-radius: 10px;
+  background-color: #B47B52;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 12px;
+  box-sizing: border-box;
+}
+
+.image {
+  width: 25px;
+  height: 25px;
+}
+
+.yum-text {
+  color: white;
+  font-size: 20px;       /* 調細字體 */
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;      /* 較細字重 */
+  line-height: 24px;
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* 白色方塊 */
+.white-box {
+  width: 237px;
+  height: 76px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  padding: 14px 15px;
+  box-sizing: border-box;
+}
+
+.white-box-text {
+  color: #212121;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+.white-box-text {
+  align-self: stretch;
+  height: 47px;
+  color: #212121;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+.traits-box {
+  margin-top: 20x;
+  width: 325px;
+  height: 394px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 45px;
+  margin-top: 73px; 
+}
+
+.trait-group {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.trait-title {
+  color: #B47B52;
+  font-size: 32px;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 40px;
+  word-wrap: break-word;
+}
+
+.trait-bar-bg {
+  width: 325px;
+  height: 25px;
+  background: white;
+  border-radius: 999px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 0px;
+}
+
+.trait-bar {
+  height: 25px;
+  background: #B47B52;
+  border-radius: 999px;
+}

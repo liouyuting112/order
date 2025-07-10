@@ -3,10 +3,13 @@ const wrapper = document.getElementById("scroll-wrapper");
 let isDown = false;
 let startY;
 let scrollTop;
+let wasDragging = false;
 
+// 🟡 滑鼠拖曳垂直捲動
 wrapper.addEventListener("mousedown", (e) => {
   isDown = true;
-  wrapper.classList.add("active"); // 你可以用這個 class 來改變 cursor 樣式
+  wasDragging = false;
+  wrapper.classList.add("active");
   startY = e.pageY;
   scrollTop = wrapper.scrollTop;
 });
@@ -25,9 +28,13 @@ wrapper.addEventListener("mousemove", (e) => {
   if (!isDown) return;
   e.preventDefault();
   const deltaY = e.pageY - startY;
-  wrapper.scrollTop = scrollTop - deltaY * 1.5; // 拖動距離倍率可以調整
+  if (Math.abs(deltaY) > 5) {
+    wasDragging = true;
+  }
+  wrapper.scrollTop = scrollTop - deltaY * 1.5;
 });
-// 觸控裝置 - 右滑偵測
+
+// 🟡 觸控右滑返回首頁
 let touchStartX = 0;
 let touchEndX = 0;
 
@@ -38,12 +45,11 @@ document.addEventListener("touchstart", function (e) {
 document.addEventListener("touchend", function (e) {
   touchEndX = e.changedTouches[0].screenX;
   if (touchEndX - touchStartX > 80) {
-    // 右滑超過 80px，跳轉回首頁
     window.location.href = "index.html";
   }
 });
 
-// 滑鼠裝置 - 右滑偵測
+// 🟡 滑鼠右滑返回首頁
 let mouseStartX = 0;
 let mouseEndX = 0;
 let isMouseDown = false;
@@ -61,12 +67,24 @@ document.addEventListener("mouseup", function (e) {
     window.location.href = "index.html";
   }
 });
-// 點擊第一張卡片跳轉至 meowbu.html
-document.addEventListener("DOMContentLoaded", () => {
-  const meowbuCard = document.getElementById("card-meowbu");
-  if (meowbuCard) {
-    meowbuCard.addEventListener("click", () => {
-      window.location.href = "meowbu.html";
-    });
+
+// 🟡 卡片點擊跳轉（含防止拖動誤觸）
+const cardToPageMap = {
+  "card-meowbu": "meowbu.html",
+  "card-kity": "kity.html",
+  "card-jimu": "jimu.html",
+  "card-captain": "captain.html",
+  "card-shasha": "shasha.html",
+};
+
+wrapper.addEventListener("click", function (e) {
+  if (wasDragging) return; // 拖曳時不觸發點擊跳轉
+
+  const card = e.target.closest(".cat-card-intro");
+  if (!card) return;
+
+  const page = cardToPageMap[card.id];
+  if (page) {
+    window.location.href = page;
   }
 });

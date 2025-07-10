@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Order</title>
-  <link rel="stylesheet" href="order.css" />
+  <link rel="stylesheet" href="dessert.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
@@ -52,28 +52,48 @@
   <div class="swiper coffee-swiper">
     <div class="swiper-wrapper">
     <!-- Slide 1 -->
-      <div class="swiper-slide">
-        <div class="coffee-combo">
+        <div class="swiper-slide">
+        <div class="coffee-combo"
+       data-title-img="images/meowcarontitle.png"
+       data-price="160"
+        data-label="MEOWCARONT"
+        data-cart="Meowcaront"
+        data-label-width="190px"
+        data-label-left="-6px"
+        data-label-font-size="22px" 
+        data-price-left="-32px"
+        data-name="MEOWCARONT"
+        data-desc-cart="Lightly crisp on the outside, soft inside, with ..."
+       data-desc-order="Lightly crisp on the outside, soft inside, with a sweet little cat face and ears.mouth">
           <div class="coffee-layer">
             <img src="images/meowcaron.png" alt="Coffee BG" class="coffee-bg" />
           </div>
           <div class="coffee-info">
-            <img src="images/meowcarontitle.png" alt="Meowcaron" class="coffee-title-img" />
+            <img src="images/meowcarontitle.png" alt="MEOWCARONT" class="coffee-title-img" />
             <div class="coffee-desc">
-            Lightly crisp on the outside, soft inside, with a sweet little cat face and ears.mouth.
+            Lightly crisp on the outside, soft inside, with a sweet little cat face and ears.mouth
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Slide 2 -->
+<!-- Slide 2 -->
     <div class="swiper-slide">
-      <div class="coffee-combo">
+      <div class="coffee-combo"
+       data-title-img="images/pawcookietitle.png"
+       data-label="PAWCOOKIE"
+       data-cart="Pawcookie"
+       data-label-width="180px"
+       data-price="150"
+       data-label-font-size="24px" 
+       data-label-left="-14px"
+       data-price-left="-32px"
+       data-desc-cart="Buttery and crunchy with a pink paw print..."
+       data-desc-order="Buttery and crunchy with a pink paw print. One bite, endless joy.">
         <div class="coffee-layer">
           <img src="images/pawcookie.png" alt="Coffee BG" class="coffee-bg" />
         </div>
         <div class="coffee-info">
-          <img src="images/pawcookietitle.png" alt="Paw Cookie" class="coffee-title-img" />
+          <img src="images/pawcookietitle.png" alt="Coffee" class="coffee-title-img" />
           <div class="coffee-desc">
             Buttery and crunchy with a pink paw print. One bite, endless joy.
           </div>
@@ -81,14 +101,24 @@
       </div>
     </div>
 
-    <!-- Slide 3 -->
+     <!-- Slide 3 -->
     <div class="swiper-slide">
-      <div class="coffee-combo">
+      <div class="coffee-combo"
+       data-title-img="images/brownietitle.png"
+       data-price="150"
+        data-label="BROWNIE"
+        data-cart="Brownie"
+        data-label-width="180px"
+        data-label-left="-12px"
+        data-label-font-size="30px" 
+        data-price-left="-32px"
+        data-desc-cart="Rich chocolate brownie with little cat ears..."
+       data-desc-order="Rich chocolate brownie with little cat ears. Soft, fudgy, purr-fect.">
         <div class="coffee-layer">
           <img src="images/brownie.png" alt="Coffee BG" class="coffee-bg" />
         </div>
         <div class="coffee-info">
-          <img src="images/brownietitle.png" alt="Bubble" class="coffee-title-img" />
+          <img src="images/brownietitle.png" alt="Brownie" class="coffee-title-img" />
           <div class="coffee-desc">
             Rich chocolate brownie with little cat ears. Soft, fudgy, purr-fect.
           </div>
@@ -99,6 +129,53 @@
 
   <!-- 分頁 -->
   <div class="swiper-pagination"></div>
+</div>
+    <!-- ✅ 新增在 swiper-slide 外面 -->
+<!-- Coffee 詳細選項面板 -->
+<div id="drink-panel" class="drink-panel">
+  <div class="price-block">
+    <div class="price-row">
+      <div class="coffee-label">
+        <div class="coffee-label-bg"></div>  <!-- 背景 -->
+        <div class="coffee-label-text">COFFEE</div>  <!-- 文字 -->
+      </div>
+      <div class="price">NT$100</div>
+    </div>
+    <div class="drink-desc">
+      A smooth, creamy latte with cat paw latte art.
+    </div>
+
+<!-- ✅ 正確放在外面，才會顯示在左下 -->
+<div class="count-control">
+  <div class="count-button">
+    <div class="count-bg"></div>
+    <div class="count-icon">
+      <img src="images/plus.png" alt="Add" />
+    </div>
+  </div>
+
+  <!-- 數字 -->
+  <div class="amount-number">1</div>
+
+  <div class="count-button">
+    <div class="count-bg"></div>
+    <div class="count-icon">
+      <img src="images/Minus.png" alt="Minus" />
+    </div>
+  </div>
+<!-- ✅ Add to Bag 按鈕 -->
+  <div class="add-to-bag">
+    <div class="add-inner">
+      <div class="add-text">
+        <div class="text">Add to</div>
+        <div class="bag-icon-wrapper">
+          <img src="images/bag01.png" class="bag-icon-img" alt="bag" />
+          <div class="bag-outline"></div>
+        </div>
+      </div>
+      <div class="click-layer"></div>
+    </div>
+  </div>
 </div>
  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="dessert.js"></script>

@@ -6,7 +6,7 @@
   margin: 0 auto;
   position: relative;
   font-family: 'Inter', sans-serif;
-  overflow: visible;
+  overflow: hidden; /* ✅ 關鍵：限制內容超出時不撐高 */
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
   
 }
@@ -45,14 +45,15 @@
   width: 20px;
   height: 28px;
   object-fit: contain;
+  cursor: pointer;
 }
 .white-panel {
   position: relative; /* 改為 relative */
   width: 375px;
   height: 535px; /* ✅ 固定高度 */
   background-color: #FFFFFF;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
   z-index: 1;
   padding-top: 5px;      /* 新增這行 */
   padding-bottom: 30px; /* 適當增加底部間距，避免內容貼邊 */
@@ -130,7 +131,59 @@
   z-index: 20;
   overflow:visible;
 }
+.drink-panel {
+  position: absolute;
+  bottom: -600px; /* 初始藏起來 */
+  left: 0;
+  width: 100%;
+  height: 535px;
+  background-color: #fff;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: transform 0.3s ease, bottom 0.4s ease, opacity 0.4s ease;
+  z-index: 10;
+  will-change: transform;
+  touch-action: none;
+  transform: translateY(150px); 
+  pointer-events: none;
+}
 
+.drink-panel.active {
+  bottom: 33px;
+  opacity: 1;
+  cursor: grabbing; /* 拖曳時改成抓住 */
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.drink-panel.closing {
+  transform: translateY(150px);
+  opacity: 0;
+  pointer-events: none;
+}
+.drink-gradient {
+  height: 100px; /* 加高漸層高度 */
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1) 50%,   /* 從中間不透明 */
+    rgba(255, 255, 255, 0.9) 100% /* 漸變到頂部略透明 */
+  );
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  position: absolute; /* 確保它在矩形內置頂 */
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none; /* 不遮擋點擊 */
+  z-index: 5;
+}
+
+.drink-content {
+  padding: 30px 20px;
+  position: relative;
+  z-index: 1;
+}
 /* 中間卡片左右側邊卡片尺寸縮小版 */
 .swiper-slide-prev,
 .swiper-slide-next {
@@ -331,14 +384,13 @@
 /* 主標題 */
 .caption-text {
   position: absolute;
-  top: 8px;
+  top: 10px;
   left: 7px;
   width: 329px;
   height: 22px;
   color: #FFF;
   font-family: 'Inter', sans-serif;
   font-size: 24px;
-  font-style: italic;
   font-weight: 900;
   line-height: 22px;
   letter-spacing: -1.5px;
@@ -346,6 +398,8 @@
   overflow: hidden;
   text-overflow: clip;
   z-index: 4; /* 比圖片高 */
+  font-style: normal;           /* 關掉原本的 italic */
+  transform: skewX(-8deg);     /* 自訂斜率，負值為向左傾斜，正值向右 */
 }
 
 /* 副標題 */
@@ -408,4 +462,266 @@
   border-radius: 4px;
   flex-shrink: 0;
   object-fit: cover;
+}
+.price-row {
+  position: relative;
+  top: 25px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  z-index: 20;
+}
+
+.coffee-label {
+  position: relative;
+  width: 157px;
+  height: 45px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coffee-label-bg {
+  width: 157px;
+  height: 45px;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #B47B52;
+  border-radius: 9999px;
+  z-index: 1;
+  
+}
+
+.coffee-label-text {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 32px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 40px;
+  transform: skewX(-10deg); /* 斜體效果 */
+  display: inline-block;
+}
+
+.price {
+  width: 144px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 900;
+  font-family: 'Inter', sans-serif;
+  color: #4B4B4B;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+.drink-desc {
+  position: relative;
+  z-index: 10;
+  margin-top: 2px;
+  margin-left: 25px;
+  width: 324px;
+  height: 48px;
+  color: #212121;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  line-height: 24px;
+  box-sizing: border-box;
+}
+.drink-option-label {
+  position: relative;        /* 絕對定位 */
+  left: 25px;                  /* 距離右邊 25px */
+  top: 20px; 
+  width: 145px;
+  height: 27px;
+  color: #212121;
+  font-size: 24px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  transform: skewX(-5deg); /* 斜體效果 */
+  font-weight: 900;
+  line-height: 22px;
+  word-wrap: break-word;
+  z-index: 10;
+}
+.option-rects {
+  margin-top: 30px;              
+  display: flex;
+  justify-content: center;       /* 水平置中 */
+  gap: 8px;                      /* 每個 box 間距 8px */
+}
+
+.option-box {
+  width: 75px;
+  height: 101px;
+  border-radius: 8px;
+  background-color: #B47B52;
+  opacity: 0.3;
+  cursor: pointer;
+}
+.option-box.active {
+  opacity: 1; /* 點擊後變全不透明 */
+}
+.option-inner {
+  margin-top: 21px; /* 👈 加這行會整體往下 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.option-icon {
+  width: 33px;
+  height: 41px;
+  object-fit: contain;
+}
+
+.option-text {
+  color: white;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+}
+.count-control {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-top: 30px;
+  margin-left: 25px; /* 距離左邊 */
+}
+
+.count-button {
+  width: 32px;
+  height: 30px;
+  padding: 0 1px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.count-bg {
+  width: 30px;
+  height: 30px;
+  background: #B47B52;
+  border-radius: 6px;
+}
+
+.count-icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 7px;
+  top: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+/* 加號圖片樣式 */
+.count-icon img {
+  width: 32px;
+  height: 30px;
+  object-fit: contain;
+}
+
+/* 數字樣式 */
+.amount-number {
+  color: #212121;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-to-bag {
+  margin-left: 24px;
+}
+
+.add-inner {
+  width: 164px;
+  height: 50px;
+  padding: 11px 33px;
+  background: #B47B52;
+  border-radius: 999px;
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;        /* ✅ 改成 row */
+  justify-content: center;    /* ✅ 置中 */
+  align-items: center;        /* ✅ 垂直置中 */
+  box-sizing: border-box;
+}
+
+.add-text {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+
+.add-text .text {
+  color: white;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  line-height: 28px;
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  white-space: nowrap; /* ✅ 避免文字自動換行 */
+}
+
+.bag-icon-wrapper {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bag-icon-img {
+  width: 18px;
+  height: 20px;
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  z-index: 1;
+}
+
+/* 點擊用的透明層 */
+.click-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 164px;
+  height: 50px;
+  z-index: 1;
+}
+.option-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* 每區上下間距 */
+}
+
+.option-rects {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* 每個選項的間距 */
 }

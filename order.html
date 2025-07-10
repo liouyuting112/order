@@ -16,7 +16,7 @@
         <div class="logo-text">Pawffee</div>
       </div>
       <img src="images/bag.png" alt="Bag" class="bag-icon" />
-    </div>
+      </div>
   <!-- 貓咪滑動區 -->
     <div class="scroll-wrapper" id="scroll-wrapper">
       <div class="scroll-track" id="scroll-track">
@@ -53,7 +53,15 @@
     <div class="swiper-wrapper">
     <!-- Slide 1 -->
       <div class="swiper-slide">
-        <div class="coffee-combo">
+        <div class="coffee-combo"
+       data-title-img="images/matchatitle.png"
+       data-price="120"
+        data-label="MATCHA"
+        data-cart="Matcha"
+        data-label-width="175px"
+        data-label-left="18px"
+        data-name="MATCHA"
+       data-desc="Creamy matcha latte with cute cat-shaped ...">
           <div class="coffee-layer">
             <img src="images/matcha01.png" alt="Coffee BG" class="coffee-bg" />
             <img src="images/matcha02.png" alt="Coffee FG" class="coffee-obj" />
@@ -69,7 +77,13 @@
 
     <!-- Slide 2 -->
     <div class="swiper-slide">
-      <div class="coffee-combo">
+      <div class="coffee-combo"
+       data-title-img="images/coffeetitle.png"
+       data-label="COFFEE"
+       data-cart="Coffee"
+       data-price="100"
+       data-desc-cart="A smooth, creamy latte with cat paw latte ..."
+       data-desc-order="A smooth, creamy latte with cat paw latte art.Ice and sweetness adjustable.">
         <div class="coffee-layer">
           <img src="images/coffee01.png" alt="Coffee BG" class="coffee-bg" />
           <img src="images/coffee02.png" alt="Coffee FG" class="coffee-obj" />
@@ -84,9 +98,18 @@
       </div>
     </div>
 
+
     <!-- Slide 3 -->
     <div class="swiper-slide">
-      <div class="coffee-combo">
+      <div class="coffee-combo"
+       data-title-img="images/bubbletitle.png"
+       data-price="90"
+        data-label="BUBBLE TEA"
+        data-cart="Bubble Tea"
+        data-label-width="200px"
+        data-label-left="12px"
+        data-desc-cart="A creamy bubble milk tea with a cute cat-ear lid..."
+       data-desc-order="A creamy bubble milk tea with a cute cat-ear lid — sweet and full of feline charm.">
         <div class="coffee-layer">
           <img src="images/bubble01.png" alt="Coffee BG" class="coffee-bg" />
           <img src="images/bubble02.png" alt="Coffee FG" class="coffee-obj" />
@@ -103,6 +126,120 @@
 
   <!-- 分頁 -->
   <div class="swiper-pagination"></div>
+</div>
+    <!-- ✅ 新增在 swiper-slide 外面 -->
+<!-- Coffee 詳細選項面板 -->
+<!-- Coffee 詳細選項面板 -->
+<div id="drink-panel" class="drink-panel">
+  <div class="price-block">
+    <div class="price-row">
+      <div class="coffee-label">
+        <div class="coffee-label-bg"></div>
+        <div class="coffee-label-text">COFFEE</div>
+      </div>
+      <div class="price">NT$100</div>
+    </div>
+    <div class="drink-desc">
+      A smooth, creamy latte with cat paw latte art.
+    </div>
+
+    <!-- ✅ 像這樣：用一個大區塊包住 -->
+    <div class="option-wrapper" style="display: flex; flex-direction: column; gap: 12px;">
+
+  <div>
+  <div class="drink-option-label">Ice</div>
+ <div class="option-rects" data-type="ice"> 
+    <div class="option-box">
+      <div class="option-inner">  
+        <img src="images/full.png" alt="Full" class="option-icon" />
+        <div class="option-text">Regular</div>
+      </div>
+    </div>
+    <div class="option-box">
+      <div class="option-inner">
+        <img src="images/less.png" alt="Less" class="option-icon" />
+        <div class="option-text">Less</div>
+      </div>
+    </div>
+    <div class="option-box">
+      <div class="option-inner">
+        <img src="images/noice.png" alt="No ice" class="option-icon" />
+        <div class="option-text">No ice</div>
+      </div>
+    </div>
+    <div class="option-box">
+      <div class="option-inner">
+        <img src="images/hot.png" alt="Hot" class="option-icon" />
+        <div class="option-text">Hot</div>
+     </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div>
+<!-- 🟡 這段才是新標籤，要寫在 group 外面 -->
+<div class="drink-option-label second-label">Sweetness</div>
+<div class="option-rects" data-type="sweetness">
+    <div class="option-box">
+      <div class="option-inner">
+        <img src="images/full.png" alt="Full" class="option-icon" />
+        <div class="option-text">Full</div>
+      </div>
+    </div>
+    <div class="option-box">
+      <div class="option-inner">
+        <img src="images/half.png" alt="Half" class="option-icon" />
+        <div class="option-text">Half</div>
+      </div>
+    </div>
+    <div class="option-box">
+      <div class="option-inner">
+        <img src="images/less.png" alt="Slightly" class="option-icon" />
+        <div class="option-text">Slightly</div>
+      </div>
+    </div>
+    <div class="option-box">
+      <div class="option-inner">
+        <img src="images/noice.png" alt="None" class="option-icon" />
+        <div class="option-text">No Sugar </div>
+     </div>
+    </div>
+    </div>
+  </div>
+
+</div> <!-- 結束 option-wrapper -->
+<!-- ✅ 正確放在外面，才會顯示在左下 -->
+<div class="count-control">
+  <div class="count-button">
+    <div class="count-bg"></div>
+    <div class="count-icon">
+      <img src="images/plus.png" alt="Add" />
+    </div>
+  </div>
+
+  <!-- 數字 -->
+  <div class="amount-number">1</div>
+
+  <div class="count-button">
+    <div class="count-bg"></div>
+    <div class="count-icon">
+      <img src="images/Minus.png" alt="Minus" />
+    </div>
+  </div>
+<!-- ✅ Add to Bag 按鈕 -->
+  <div class="add-to-bag">
+    <div class="add-inner">
+      <div class="add-text">
+        <div class="text">Add to</div>
+        <div class="bag-icon-wrapper">
+          <img src="images/bag01.png" class="bag-icon-img" alt="bag" />
+          <div class="bag-outline"></div>
+        </div>
+      </div>
+      <div class="click-layer"></div>
+    </div>
+  </div>
 </div>
  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="order.js"></script>

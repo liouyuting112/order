@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cart</title>
+  <link rel="stylesheet" href="cart.css" />
+</head>
+<body>
+  <div class="mobile-screen">
+    <div class="cart-label">CART</div>
+    <div id="cart-container"></div> <!-- 🔸所有商品卡片會加進這 -->
+    <div class="spacer"></div> <!-- 預留底部空間 -->
+    <div class="drink-panel">
+    <div class="drink-content"> <!-- ✅ 包住文字 -->
+    <div class="drink-total-label">Total</div>
+        <div class="drink-total-price">NT$370</div>  
+        <div class="checkout-button-wrapper">
+          <div class="checkout-button-inner">
+            <div class="checkout-icon">
+              <img src="images/checkout.png" alt="checkout" />
+            </div>
+            <div class="checkout-text">Checkout</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="drink-gradient"></div>
+  </div> <!-- 關閉 .mobile-screen -->
+  <script src="cart.js"></script>
+</body>
+</html>

@@ -58,6 +58,9 @@
 .cat-card-intro:hover {
   transform: scale(1.02);
 }
+.cat-card-intro:first-child {
+  margin-top: -10px; /* 原本是 25px，往上靠近一點 */
+}
 /* 名牌（浮在左上角） */
 .name-badge {
   position: absolute;

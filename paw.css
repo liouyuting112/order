@@ -52,8 +52,8 @@
   width: 375px;
   height: 535px;
   background-color: #FFFFFF;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
   z-index: 0;
 }
 
@@ -152,14 +152,13 @@
 /* 主標題 */
 .caption-text {
   position: absolute;
-  top: 8px;
+  top: 10px;
   left: 7px;
   width: 329px;
   height: 22px;
   color: #FFF;
   font-family: 'Inter', sans-serif;
   font-size: 24px;
-  font-style: italic;
   font-weight: 900;
   line-height: 22px;
   letter-spacing: -1.5px;
@@ -167,6 +166,8 @@
   overflow: hidden;
   text-overflow: clip;
   z-index: 4; /* 比圖片高 */
+  font-style: normal;           /* 關掉原本的 italic */
+  transform: skewX(-8deg);     /* 自訂斜率，負值為向左傾斜，正值向右 */
 }
 
 /* 副標題 */
