@@ -1,0 +1,328 @@
+.mobile-screen {
+  width: 375px;
+  height: 812px;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  overflow-x: hidden; /* 隱藏水平滾動軸 */
+
+  /* 讓內容垂直排 */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+/* CART文字 */
+.cart-label {
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 900;
+  color: #212121;
+  line-height: 40px;
+  z-index: 10;
+}
+
+
+#cart-container {
+  padding-left: 18px;
+  padding-right: 18px;
+  position: absolute;
+  top: 113px; /* 從頂部往下113px開始 */
+  bottom: 200px; /* 底部往上200px */
+  left: 0;
+  right: 0;
+  overflow-y: auto; /* 允許垂直滾動 */
+  -webkit-overflow-scrolling: touch; /* iOS順滑滾動 */
+  background: #fff;
+  /* 可視化測試可暫時加邊框 */
+  /* border: 1px solid red; */
+  z-index: 5;
+  scrollbar-width: none; /* Firefox 隱藏 scrollbar */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+#cart-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera 隱藏 scrollbar */
+}
+
+/* 佔位，避免底部飲料面板蓋住商品 */
+.spacer {
+  height: 200px;
+  flex-shrink: 0;
+}
+.product-card {
+  margin: 40px 0 0 0; /* 頂部間距40px，左右無margin */
+  width: 100%; /* 改成100%，寬度自動撐滿容器 */
+  max-width: 339px; /* 限制最大寬度 */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.product-img {
+  width: 99px;
+  height: 99px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  object-fit: cover;
+}
+
+.product-info {
+  width: 240px;
+  height: 99px;
+  padding: 10px 8px;
+  background: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding-bottom: 40px; /* 預留下方空間給按鈕 */
+  position: relative; /* ← 加上這行 */
+}
+
+.product-top-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+}
+
+.product-name {
+  width: 81px;
+  color: #212121;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  line-height: 28px;
+  word-wrap: break-word;
+  white-space: nowrap;    /* 不換行 */
+}
+
+.product-price {
+  width: 78px;
+  height: 24px;
+  text-align: center;
+  color: #212121;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-desc {
+  width: 220px;
+  height: 54px;
+  color: #212121;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 24px;
+  word-wrap: break-word;
+  margin-top: 4px;
+  position: relative;
+}
+
+.left-slide-box {
+  pointer-events: auto; /* 防止滑動區誤擋 */
+  position: absolute;
+  right: -104px; /* 改成右邊 -78px (整個寬度) */
+  top: 0;
+  width: 68px;
+  height: 54px;
+  padding: 25px 9px;
+  background: #B47B52;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  z-index: 2;
+}
+.garbage-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  pointer-events: auto; /* 確保可點擊 */
+  cursor: pointer;
+}
+
+/* 卡片被滑動左移時，顯示左側盒子 */
+.product-card.slid-left {
+  transform: translateX(-109px);
+}
+
+.product-card.slid-left .left-slide-box {
+  opacity: 1;
+}
+.quantity-control {
+  position: absolute;
+  right: 10px;   /* 改為右下角 */
+  bottom: 8px;   /* 改為右下角 */
+  width: 78px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-control img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.quantity-number {
+  color: #212121;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  text-align: center;
+}
+.product-card.removing {
+  transform: translateX(100px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.drink-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background-color: #fff;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.drink-gradient {
+  height: 100px; /* 加高漸層高度 */
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1) 50%,   /* 從中間不透明 */
+    rgba(255, 255, 255, 0.9) 100% /* 漸變到頂部略透明 */
+  );
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  position: absolute; /* 確保它在矩形內置頂 */
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none; /* 不遮擋點擊 */
+  z-index: 5;
+}
+.drink-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 28px 30px 0 30px;
+  box-sizing: border-box;
+  z-index: 11;
+}
+
+.drink-total-label {
+  color: #212121;
+  font-size: 18px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 24px;
+  word-wrap: break-word;
+  margin-bottom: 2px;
+}
+
+.drink-total-price {
+  color: #212121;
+  font-size: 32px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 40px;
+  transform: skewX(-8deg); /* 斜體效果 */
+  word-wrap: break-word;
+}
+
+.checkout-button-wrapper {
+  margin-top: 25px;
+  padding: 8px 50px;
+  background: #B47B52;
+  border-radius: 999px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.checkout-button-inner {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 4px;
+  margin-left: -4px; /* 往左移10px，可調整數值 */
+}
+
+.checkout-icon {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+}
+
+.checkout-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 保持圖片完整顯示 */
+}
+
+.checkout-text {
+  text-align: center;
+  color: white;
+  font-size: 32px;
+  font-family: Inter, sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 40px;
+  word-wrap: break-word;
+}
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* CART 置中 */
+  position: relative;
+  height: 70px;
+  background-color: #fff; /* 可選：增加背景避免文字被蓋住 */
+  z-index: 6;
+  top: 20px;
+}
+
+.back-arrow {
+  position: absolute;
+  left: 20px;
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  z-index: 10;
+}

@@ -1,0 +1,235 @@
+/* 模擬手機尺寸 */
+.mobile-screen {
+  width: 375px;
+  height: 812px;
+  background-color: #FCF1E6;
+  margin: 0 auto;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 頂部 Header */
+.order-header {
+  padding: 26px 16px 0 16px; /* 這邊的padding-bottom不要加或設0 */
+  margin-bottom: 0; /* 確保沒有額外外距 */
+}
+
+/* LOGO組 */
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* LOGO圖 */
+.logo-img {
+  width: 24px;
+  height: 24px;
+}
+
+/* LOGO字 */
+.logo-text {
+  color: #B47B52;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 28px;
+}
+
+/* 主內容區（目前留空） */
+.cat-intro-content {
+  padding: 24px 16px;
+  margin-top: 0px;
+  min-height: 1445px; /* 或 auto，也可以用 height: fit-content; */
+}
+.cat-card-intro {
+  width: 345px;
+  height: 250px;
+  background-color: rgba(180, 123, 82, 0.2);
+  border-radius: 40px;
+  margin: 10px auto 0 auto;
+  position: relative; /* 很重要！為了讓裡面的 absolute 正確定位 */
+  overflow: hidden;
+  margin-top: 25px; /* 這是兩張卡片間的垂直間距 */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.cat-card-intro:hover {
+  transform: scale(1.02);
+}
+.cat-card-intro:first-child {
+  margin-top: -10px; /* 原本是 25px，往上靠近一點 */
+}
+/* 名牌（浮在左上角） */
+.name-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 133px;
+  height: 29px;
+  background: #B47B52;
+  opacity: 0.6;
+  border-radius: 999px;
+  display: flex;               /* 改成flex，不是inline-flex */
+  justify-content: center;     /* 水平置中 */
+  align-items: center;         /* 垂直置中 */
+  z-index: 2;
+}
+.name-badge01 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 77px;
+  height: 29px;
+  background: #B47B52;
+  opacity: 0.6;
+  border-radius: 999px;
+  display: flex;               /* 改成flex，不是inline-flex */
+  justify-content: center;     /* 水平置中 */
+  align-items: center;         /* 垂直置中 */
+  z-index: 2;
+}
+.name-badge02 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 77px;
+  height: 29px;
+  background: #B47B52;
+  opacity: 0.6;
+  border-radius: 999px;
+  display: flex;               /* 改成flex，不是inline-flex */
+  justify-content: center;     /* 水平置中 */
+  align-items: center;         /* 垂直置中 */
+  z-index: 2;
+}
+.name-badge03 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 124px;
+  height: 29px;
+  background: #B47B52;
+  opacity: 0.6;
+  border-radius: 999px;
+  display: flex;               /* 改成flex，不是inline-flex */
+  justify-content: center;     /* 水平置中 */
+  align-items: center;         /* 垂直置中 */
+  z-index: 2;
+}
+.name-badge04 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 119px;
+  height: 29px;
+  background: #B47B52;
+  opacity: 0.6;
+  border-radius: 999px;
+  display: flex;               /* 改成flex，不是inline-flex */
+  justify-content: center;     /* 水平置中 */
+  align-items: center;         /* 垂直置中 */
+  z-index: 2;
+}
+.name-text {
+  width: 115px;                /* 加上寬度 */
+  height: 18px;                /* 高度 */
+  display: flex;
+  justify-content: center;
+  align-items: center;         /* 改成垂直置中 */
+  font-size: 24px;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  line-height: 22px;
+  color: white;
+  word-wrap: break-word;
+  letter-spacing: -0.7px; /* 數值可以調整，負值讓字距更窄 */
+  position: relative;
+  top: -1px;  /* 負值往上 */
+  left: -3px;  /* 正值往右 */
+}
+
+/* 貓咪圖片 */
+.cat-image-intro {
+  margin: 16px 14px;
+  width: 159;
+  height: 217;
+  max-width: 100%;
+  display: block;
+  z-index: 1;
+  position: relative;
+}
+/* 個性條列 */
+.cat-info-bars {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 144px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2;
+}
+
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bar-label {
+  color: #B47B52;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.bar-bg {
+  width: 100%;
+  height: 12px;
+  background-color: white;
+  border-radius: 999px;
+  position: relative;
+}
+
+.bar-fill {
+  height: 12px;
+  background-color: #B47B52;
+  border-radius: 999px;
+}
+
+.scroll-wrapper {
+  width: 375px;
+  height: 812px;
+  overflow-x: hidden;
+ overflow-y: auto;
+  margin: 0px auto 15px auto; /* 這裡底部 margin 建議改成 20px */
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  position: relative;
+  cursor: grab;
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll track */
+.scroll-track {
+  gap: 8px;
+  align-items: flex-start; /* 由預設的 stretch 改成 flex-start */
+  width: 375px;
+  height: 1445px;
+  padding-bottom: 40px;
+}
+.cat-card:first-child {
+  margin-left: 15px;
+}
+.scroll-wrapper.active {
+  cursor: grabbing;
+}

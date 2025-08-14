@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order</title>
+  <link rel="stylesheet" href="paw.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+  <div class="mobile-screen">
+    <!-- 頂部 Header -->
+    <div class="order-header">
+      <div class="logo-group">
+        <img src="images/logo.png" alt="Logo" class="logo-img" />
+        <div class="logo-text">Pawffee</div>
+      </div>
+      <img src="images/bag.png" alt="Bag" class="bag-icon" />
+    </div>
+  <!-- 貓咪滑動區 -->
+    <div class="scroll-wrapper" id="scroll-wrapper">
+      <div class="scroll-track" id="scroll-track">
+        <!-- 貓咪卡片 A 區塊 -->
+        <div class="cat-card">
+          <div class="card-bg"></div>
+          <img src="images/cat00.png" alt="Cat" class="cat-image" />
+          <div class="caption-text">Today’s cat crew is on duty!</div>
+          <div class="sub-caption-text">
+            Which one will steal your heart (or your <br />meal)?
+          </div>
+          <a href="cat-intro.html" class="info-badge">More About Me</a>
+        </div>
+
+        <!-- 其他圖片卡 -->
+        <img src="images/cat01.png" class="cat-card-img" />
+        <img src="images/cat02.png" class="cat-card-img" />
+        <img src="images/cat03.png" class="cat-card-img" />
+        <img src="images/cat04.png" class="cat-card-img" />
+        <img src="images/cat05.png" class="cat-card-img" />
+        <img src="images/cat06.png" class="cat-card-img" />
+      </div>
+    </div>
+
+    <!-- 白底飲料區 -->
+    <div class="white-panel">
+  <div class="button-group">
+    <a href="order.html" class="small-button">Drink</a>
+    <a href="Dessert.html" class="small-button">Dessert</a>
+    <div class="small-button active-button">Paw</div>
+  </div>
+<div class="swiper-container-wrapper"></div>
+  <div class="swiper coffee-swiper">
+    <div class="swiper-wrapper">
+    <!-- Slide 1 -->
+        <div class="swiper-slide">
+        <div class="coffee-combo"
+       data-title-img="images/teasingwandtitle.png"
+       data-price="80"
+        data-label="TEASINGWAND"
+        data-cart="Teasingwand"
+        data-label-width="190px"
+        data-label-left="-6px"
+        data-label-font-size="22px" 
+        data-price-left="-32px"
+        data-name="TEASINGWAND"
+        data-desc-cart="Soft handle, fun sways, keeps your cat on their paws."
+       data-desc-order="Soft handle, fun sways, keeps your cat on their paws.">
+          <div class="coffee-layer">
+            <img src="images/teaser wand01.png" alt="Coffee BG" class="coffee-bg" />
+          </div>
+          <div class="coffee-info">
+            <img src="images/teasingwandtitle.png" alt="TEASINGWAND" class="coffee-title-img" />
+            <div class="coffee-desc">
+            Soft handle, fun sways, keeps your cat on their paws.
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- Slide 2 -->
+    <div class="swiper-slide">
+      <div class="coffee-combo"
+       data-title-img="images/driedfishtitle.png"
+       data-label="DRIED FISH"
+       data-cart="Dried Fish"
+       data-label-width="180px"
+       data-price="60"
+       data-label-font-size="24px" 
+       data-label-left="-14px"
+       data-price-left="-32px"
+       data-desc-cart="Tiny tasty fish treats for happy cats."
+       data-desc-order="Tiny tasty fish treats for happy cats.">
+        <div class="coffee-layer">
+          <img src="images/fish bites01.png" alt="Coffee BG" class="coffee-bg" />
+        </div>
+        <div class="coffee-info">
+          <img src="images/driedfishtitle.png" alt="Dried Fish" class="coffee-title-img" />
+          <div class="coffee-desc">
+            Tiny tasty fish treats for happy cats.
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <!-- Slide 3 -->
+    <div class="swiper-slide">
+      <div class="coffee-combo"
+       data-title-img="images/meatpureetitle.png"
+       data-price="40"
+        data-label="MEAT PUREE"
+        data-cart="Meat Puree"
+        data-label-width="180px"
+        data-label-left="-16px"
+        data-label-font-size="24px" 
+        data-price-left="-32px"
+        data-desc-cart="Creamy, rich flavor cats love—licks guaranteed."
+       data-desc-order="Creamy, rich flavor cats love—licks guaranteed.">
+        <div class="coffee-layer">
+          <img src="images/freeze bites01.png" alt="Coffee BG" class="coffee-bg" />
+        </div>
+        <div class="coffee-info">
+          <img src="images/meatpureetitle.png" alt="Meat Puree" class="coffee-title-img" />
+          <div class="coffee-desc">
+            Creamy, rich flavor cats love—licks guaranteed.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 分頁 -->
+  <div class="swiper-pagination"></div>
+</div>
+    <!-- ✅ 新增在 swiper-slide 外面 -->
+<!-- Coffee 詳細選項面板 -->
+<div id="drink-panel" class="drink-panel">
+  <div class="price-block">
+    <div class="price-row">
+      <div class="coffee-label">
+        <div class="coffee-label-bg"></div>  <!-- 背景 -->
+        <div class="coffee-label-text">TEASINGWAND</div>  <!-- 文字 -->
+      </div>
+      <div class="price">NT$80</div>
+    </div>
+    <div class="drink-desc">
+      Soft handle, fun sways, keeps your cat on their paws.
+    </div>
+
+<!-- ✅ 正確放在外面，才會顯示在左下 -->
+<div class="count-control">
+  <div class="count-button">
+    <div class="count-bg"></div>
+    <div class="count-icon">
+      <img src="images/plus.png" alt="Add" />
+    </div>
+  </div>
+
+  <!-- 數字 -->
+  <div class="amount-number">1</div>
+
+  <div class="count-button">
+    <div class="count-bg"></div>
+    <div class="count-icon">
+      <img src="images/Minus.png" alt="Minus" />
+    </div>
+  </div>
+<!-- ✅ Add to Bag 按鈕 -->
+  <div class="add-to-bag">
+    <div class="add-inner">
+      <div class="add-text">
+        <div class="text">Add to</div>
+        <div class="bag-icon-wrapper">
+          <img src="images/bag01.png" class="bag-icon-img" alt="bag" />
+          <div class="bag-outline"></div>
+        </div>
+      </div>
+      <div class="click-layer"></div>
+    </div>
+  </div>
+</div>
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="paw.js"></script>
+</body>
+</html>
